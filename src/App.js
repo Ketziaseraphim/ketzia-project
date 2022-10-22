@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import SalesForm from "./components/Forms/SalesForm";
+import BbmForm from "./components/Forms/BbmForm";
+import ExpenseForm from "./components/Forms/ExpenseForm";
+import EmpForm from "./components/Forms/EmpForms";
+import LoginPage from "./components/Pages/LoginPage";
+import UsersPage from "./components/Pages/UsersPage";
+import ProductsPage from "./components/Pages/ProductsPage";
+import "./components/css/style.css";
+import SalesPage from "./components/Pages/SalesPage";
+import ExpensePage from "./components/Pages/ExpensePage";
+import BbmAdmission from "./components/Pages/BbmAdmission";
+import Sidebar from "./components/Navigation/Sidebar";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Routes>
+          <Route path="/" element={<Sidebar />} />
+          <Route path="/users" element={<UsersPage />} />
+          <Route path="/product" element={<ProductsPage />} />
+          <Route path="/penjualan" element={<SalesPage />} />
+          <Route path="/salesform" element={<SalesForm />} />
+          <Route path="/bbm" element={<BbmForm />} />
+          <Route path="/penerimaan" element={<BbmAdmission />} />
+          <Route path="/pengeluaran" element={<ExpensePage />} />
+          <Route path="/expenseform" element={<ExpenseForm />} />
+          <Route path="/form" element={<EmpForm />} />
+          <Route path="/login" element={<LoginPage />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
